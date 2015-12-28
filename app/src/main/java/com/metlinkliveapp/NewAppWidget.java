@@ -3,11 +3,13 @@ package com.metlinkliveapp;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
-import android.os.AsyncTask;
+
 import android.util.Log;
 import android.widget.RemoteViews;
+import com.metlinkliveapp.StopInfo;
 
-import com.metlinkliveapp.Request;
+import java.util.List;
+
 
 /**
  * Implementation of App Widget functionality.
@@ -21,17 +23,17 @@ public class NewAppWidget extends AppWidgetProvider {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
-        AsyncTask r = new Request().execute("https://www.metlink.org.nz/stop/5000/departures");
-        String request_text;
-        try {
-            request_text = (String) r.get();
-            Log.d(context.getString(R.string.logname),"Request result -- " + request_text);
+
+        StopInfo stop = new StopInfo("5000");
+
+        List<Departure> info;
+        info = stop.getInfo();
+        if (info.isEmpty()) {
+            views.setTextViewText(R.id.textViewLarge, "no results");
         }
-        catch(Exception e) {
-            Log.d(context.getString(R.string.logname),e.getMessage());
-            request_text = "Failed to get";
+        else {
+            views.setTextViewText(R.id.textViewLarge, info.get(0).toString());
         }
-        views.setTextViewText(R.id.textViewLarge, request_text);
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

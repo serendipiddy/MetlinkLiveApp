@@ -5,6 +5,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import android.content.Context;
 import android.util.Log;
@@ -13,25 +14,21 @@ import android.os.AsyncTask;
 /**
  * Created by iddy on 22/12/2015.
  */
-public class Request extends AsyncTask<String, Void, String> {
+public class Request extends AsyncTask<String, Void, Document> {
     /* Need to execute network requests in async, not on main thread. AsynkTask<params, progress, result> */
-    protected String doInBackground(String... urls) {
-        String text;
+    protected Document doInBackground(String... urls) {
+        Document doc = null;
         String url;
         try {
+            Log.d("Request_TryInBG", Arrays.toString(urls));
             url = urls[0];
-            Document doc = Jsoup.connect(url).get();
-            text = doc.text();
+            doc = Jsoup.connect(url).get();
         }
         catch (Exception e) {
-            // Log.d(context.getString(R.string.logname),e.getMessage());
-            return "Error: (" + e.getClass() + ") -- " + e.getMessage();
+            Log.d("Request_doInBG", "Error: (" + e.getClass() + ") -- " + e.getMessage());
         }
-        // Log.d(context.getString(R.string.logname),text);
-        return text;
+        return doc;
     }
 
-    protected void onPostExecute(String s) {
-
-    }
+    protected void onPostExecute(String s) { }
 }
