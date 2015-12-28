@@ -21,10 +21,11 @@ public class NewAppWidget extends AppWidgetProvider {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
-        AsyncTask r = new Request().execute("http://atmel.com/avrstudio");
+        AsyncTask r = new Request().execute("https://www.metlink.org.nz/stop/5000/departures");
         String request_text;
         try {
             request_text = (String) r.get();
+            Log.d(context.getString(R.string.logname),"Request result -- " + request_text);
         }
         catch(Exception e) {
             Log.d(context.getString(R.string.logname),e.getMessage());
