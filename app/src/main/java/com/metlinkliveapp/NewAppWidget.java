@@ -3,7 +3,11 @@ package com.metlinkliveapp;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.RemoteViews;
+
+import com.metlinkliveapp.Request;
 
 /**
  * Implementation of App Widget functionality.
@@ -17,6 +21,16 @@ public class NewAppWidget extends AppWidgetProvider {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
+        AsyncTask r = new Request().execute("http://atmel.com/avrstudio");
+        String request_text;
+        try {
+            request_text = (String) r.get();
+        }
+        catch(Exception e) {
+            Log.d(context.getString(R.string.logname),e.getMessage());
+            request_text = "Failed to get";
+        }
+        views.setTextViewText(R.id.textViewLarge, request_text);
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

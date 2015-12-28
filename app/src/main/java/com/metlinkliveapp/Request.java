@@ -8,22 +8,30 @@ import java.io.IOException;
 
 import android.content.Context;
 import android.util.Log;
+import android.os.AsyncTask;
 
 /**
  * Created by iddy on 22/12/2015.
  */
-public class Request {
-    public static String getPage(Context context, String url) {
+public class Request extends AsyncTask<String, Void, String> {
+    /* Need to execute network requests in async, not on main thread. AsynkTask<params, progress, result> */
+    protected String doInBackground(String... urls) {
         String text;
+        String url;
         try {
+            url = urls[0];
             Document doc = Jsoup.connect(url).get();
             text = doc.text();
         }
-        catch (IOException e) {
-            Log.d(context.getString(R.string.logname),e.getMessage());
+        catch (Exception e) {
+            // Log.d(context.getString(R.string.logname),e.getMessage());
             return "Error";
         }
-        Log.d("metlinkliveapp",text);
+        // Log.d(context.getString(R.string.logname),text);
         return text;
+    }
+
+    protected void onPostExecute(String s) {
+
     }
 }
