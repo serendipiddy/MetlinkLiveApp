@@ -25,7 +25,7 @@ public class Request extends AsyncTask<String, Void, String> {
         }
         catch (Exception e) {
             // Log.d(context.getString(R.string.logname),e.getMessage());
-            return "Error";
+            return "Error: (" + e.getClass() + ") -- " + e.getMessage();
         }
         // Log.d(context.getString(R.string.logname),text);
         return text;
