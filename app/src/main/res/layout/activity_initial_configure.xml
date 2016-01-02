@@ -7,5 +7,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.metlinkliveapp.InitialConfigure"/>
+    tools:context="com.metlinkliveapp.InitialConfigure">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Which stop number?"
+        android:id="@+id/stopSelectionAsk"
+        android:layout_marginTop="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stopEntry"
+        android:layout_below="@+id/stopSelectionAsk"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:text="                              " />
+</RelativeLayout>
 
