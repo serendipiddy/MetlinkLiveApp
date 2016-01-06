@@ -16,7 +16,17 @@ import java.util.List;
  */
 public class NewAppWidget extends AppWidgetProvider {
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+    public StopInfo getStop() {
+        return stop;
+    }
+
+    public void setStop(StopInfo stop) {
+        this.stop = stop;
+    }
+
+    public static StopInfo stop;
+
+     void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
         CharSequence widgetText = context.getString(R.string.appwidget_text);
@@ -24,7 +34,7 @@ public class NewAppWidget extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
 
-        StopInfo stop = new StopInfo("5000");
+
 
         List<Departure> info;
         info = stop.getInfo();

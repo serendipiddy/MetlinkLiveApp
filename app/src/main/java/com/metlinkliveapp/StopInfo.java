@@ -13,6 +13,14 @@ import org.jsoup.select.Elements;
  * Created by iddy on 28/12/2015.
  */
 public class StopInfo {
+    public String getStopNumber() {
+        return stopNumber;
+    }
+
+    public void setStopNumber(String stopNumber) {
+        this.stopNumber = stopNumber;
+    }
+
     private String stopNumber;
     private String stopURL = "https://www.metlink.org.nz/stop/<STOP>/departures";
 
