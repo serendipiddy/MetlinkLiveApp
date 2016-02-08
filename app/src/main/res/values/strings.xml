@@ -4,4 +4,7 @@
     <string name="add_widget">Add widget</string>
     <string name="title_activity_initial_configure">InitialConfigure</string>
     <string name="logname">metlinkliveapp</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="main_title">Quicklink</string>
+    <string name="title_activity_main">Quicklink</string>
 </resources>
