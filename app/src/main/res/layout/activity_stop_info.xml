@@ -43,7 +43,8 @@
             android:layout_alignBottom="@+id/stop_info_fn_button"
             android:layout_centerHorizontal="true"
             android:textColor="#ffffffff"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:clickable="true" />
 
         <ImageButton
             android:layout_width="75dp"
@@ -83,6 +84,7 @@
         android:background="#00364a"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:clickable="true" />
 
 </RelativeLayout>

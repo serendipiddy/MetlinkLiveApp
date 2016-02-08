@@ -3,12 +3,14 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="title_activity_initial_configure">InitialConfigure</string>
+
     <string name="logname">metlinkliveapp</string>
-    <string name="title_activity_maps">Map</string>
     <string name="main_title">Quicklink</string>
+
     <string name="title_activity_main">Quicklink</string>
-    <string name="title_activity_location">Location</string>
-    <string name="title_activity_bus">Bus Locations</string>
+    <string name="title_activity_stop_info">Stop Info</string>
+
     <string name="stop_info_header">Stop</string>
     <string name="stop_info_filter">Filter:</string>
+
 </resources>

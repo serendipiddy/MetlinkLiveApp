@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,15 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);  // Loads the layout XML file
     }
 
-    protected void openLocation(View view) {
-        Intent intent = new Intent(this, LocationActivity.class);
+    public void openLocation(View view) {
+        // Intent intent = new Intent(this, LocationActivity.class);
     }
 
-    protected void openStopInfo(View view) {
-
+    public void openStopInfo(View view) {
+        Intent intent = new Intent(this, StopInfoActivity.class);
+        // EditText editText = (EditText) findViewById(R.id.edit_message);
+        // String message = editText.getText().toString();
+        // intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 
-    protected void openBus(View view) {
-
+    public void openBusLocation(View view) {
+        // Intent intent = new Intent(this, BusLocationActivity.class);
     }
 }

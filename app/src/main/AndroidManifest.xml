@@ -7,7 +7,7 @@
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
+         location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -40,7 +40,7 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -51,37 +51,12 @@
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".LocationActivityMap"
-            android:label="@string/title_activity_location">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.metlinkliveapp.LocationActivity" />
-        </activity>
-        <activity android:name=".StopInfoActivity" />
-        <activity
-            android:name=".BusActivityMap"
-            android:label="@string/title_activity_bus">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.metlinkliveapp.BusActivity" />
-        </activity>
-        <activity
-            android:name=".LocationActivity"
-            android:label="@string/title_activity_location"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.metlinkliveapp.MainActivity" />
-        </activity>
-        <activity
-            android:name=".BusActivity"
-            android:label="@string/title_activity_bus"
+            android:name=".StopInfoActivity"
+            android:label="@string/title_activity_stop_info"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data

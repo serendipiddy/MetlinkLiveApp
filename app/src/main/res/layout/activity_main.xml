@@ -46,7 +46,7 @@
         <ImageButton
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:id="@+id/main_bus_button"
+            android:id="@+id/main_bus_location_button"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:src="@drawable/bus_selector"
@@ -54,7 +54,7 @@
             android:background="#00ffffff"
             android:contentDescription="bus locations"
             android:clickable="true"
-            android:onClick="openBus"
+            android:onClick="openBusLocation"
             />
     </LinearLayout>
 
@@ -67,6 +67,7 @@
         android:contentDescription="main logo"
         android:scaleType="fitCenter"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
 
 </RelativeLayout>
