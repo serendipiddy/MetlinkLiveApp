@@ -55,18 +55,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MapsActivity" />
+        <activity
+            android:name=".LocationActivityMap"
+            android:label="@string/title_activity_location">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.metlinkliveapp.LocationActivity" />
+        </activity>
+        <activity android:name=".StopInfoActivity" />
+        <activity
+            android:name=".BusActivityMap"
+            android:label="@string/title_activity_bus">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.metlinkliveapp.BusActivity" />
+        </activity>
         <activity
             android:name=".LocationActivity"
-            android:label="@string/title_activity_location">
+            android:label="@string/title_activity_location"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.metlinkliveapp.MainActivity" />
         </activity>
-        <activity android:name=".StopInfoActivity" />
         <activity
             android:name=".BusActivity"
-            android:label="@string/title_activity_bus">
+            android:label="@string/title_activity_bus"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.metlinkliveapp.MainActivity" />
