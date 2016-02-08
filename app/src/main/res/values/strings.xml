@@ -7,4 +7,6 @@
     <string name="title_activity_maps">Map</string>
     <string name="main_title">Quicklink</string>
     <string name="title_activity_main">Quicklink</string>
+    <string name="title_activity_location">Location</string>
+    <string name="title_activity_bus">Bus Locations</string>
 </resources>

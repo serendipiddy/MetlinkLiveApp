@@ -51,10 +51,26 @@
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MapsActivity"></activity>
+        <activity android:name=".MapsActivity" />
+        <activity
+            android:name=".LocationActivity"
+            android:label="@string/title_activity_location">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.metlinkliveapp.MainActivity" />
+        </activity>
+        <activity android:name=".StopInfoActivity" />
+        <activity
+            android:name=".BusActivity"
+            android:label="@string/title_activity_bus">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.metlinkliveapp.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
