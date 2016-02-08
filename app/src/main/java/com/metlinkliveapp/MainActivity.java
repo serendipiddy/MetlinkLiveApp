@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openLocation(View view) {
-        // Intent intent = new Intent(this, LocationActivity.class);
+        Intent intent = new Intent(this, LocationActivity.class);
+        startActivity(intent);
     }
 
     public void openStopInfo(View view) {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openBusLocation(View view) {
-        // Intent intent = new Intent(this, BusLocationActivity.class);
+        Intent intent = new Intent(this, BusLocationActivity.class);
+        startActivity(intent);
     }
 }

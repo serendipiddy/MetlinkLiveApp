@@ -4,23 +4,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class StopInfoActivity extends AppCompatActivity {
+public class BusLocationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stop_info);
+        setContentView(R.layout.activity_bus_location);
     }
 
-    public void selectStop(View view) {
-
-    }
-
-    public void refreshLiveInfo(View view) {
+    public void refreshBusLocation(View view) {
 
     }
 
-    public void selectFilter(View view) {
+    public void selectService(View view) {
 
     }
 }

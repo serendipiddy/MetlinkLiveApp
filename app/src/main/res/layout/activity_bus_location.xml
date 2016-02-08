@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.metlinkliveapp.StopInfoActivity">
+    tools:context="com.metlinkliveapp.BusLocationActivity">
 
     <RelativeLayout
         android:orientation="vertical"
@@ -23,18 +22,18 @@
         <ImageButton
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/stop_info_fn_button"
+            android:id="@+id/bus_location_fn_button"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:src="@drawable/stop_info_selector"
+            android:src="@drawable/bus_selector"
             android:clickable="true"
             android:scaleType="fitCenter"
             android:background="#00ffffff"
-            android:onClick="selectStop" />
+            android:onClick="selectService" />
 
         <RelativeLayout
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:clickable="false">
@@ -43,8 +42,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/stop_info_header"
-                android:id="@+id/stop_info_header"
+                android:text="@string/bus_location_header"
+                android:id="@+id/bus_location_header"
                 android:layout_centerHorizontal="true"
                 android:textColor="#ffffffff"
                 android:clickable="false"
@@ -54,10 +53,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/current_stop_number"
-                android:id="@+id/stop_info_stop_number"
+                android:text="@string/bus_location_service_number"
+                android:id="@+id/bus_location_service_number"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/stop_info_header"
+                android:layout_below="@+id/bus_location_header"
                 android:textColor="#ffff"
                 android:textStyle="bold"
                 android:textIsSelectable="false" />
@@ -66,7 +65,7 @@
         <ImageButton
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/stop_info_refresh_button"
+            android:id="@+id/bus_location_refresh_button"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -74,47 +73,7 @@
             android:src="@drawable/refresh_selector"
             android:scaleType="fitCenter"
             android:background="#00ffffff"
-            android:onClick="refreshLiveInfo" />
+            android:onClick="refreshBusLocation" />
 
     </RelativeLayout>
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/stop_info_scroll"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/stop_info_filter"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" >
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/stop_info_list" />
-    </ScrollView>
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="30dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/stop_info_filter"
-        android:id="@+id/stop_info_filter"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#ffffff"
-        android:background="#00364a"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:clickable="true"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="selectFilter" />
-
 </RelativeLayout>

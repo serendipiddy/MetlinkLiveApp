@@ -10,7 +10,13 @@
     <string name="title_activity_main">Quicklink</string>
     <string name="title_activity_stop_info">Stop Info</string>
 
-    <string name="stop_info_header">Stop</string>
+    <string name="stop_info_header">Stop No.</string>
     <string name="stop_info_filter">Filter:</string>
+    <string name="current_stop_number">5000</string>
+    <string name="title_activity_location">location activity</string>
+    <string name="location_header">Location</string>
+    <string name="bus_location_service_number">1</string>
+    <string name="bus_location_header">Service No.</string>
+    <string name="title_activity_bus_location">bus location</string>
 
 </resources>
