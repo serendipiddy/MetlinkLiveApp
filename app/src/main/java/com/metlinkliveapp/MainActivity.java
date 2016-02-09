@@ -35,4 +35,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BusLocationActivity.class);
         startActivity(intent);
     }
+
 }
