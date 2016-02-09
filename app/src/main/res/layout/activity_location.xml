@@ -65,4 +65,12 @@
             android:onClick="refreshLocation" />
 
     </RelativeLayout>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/fragment"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

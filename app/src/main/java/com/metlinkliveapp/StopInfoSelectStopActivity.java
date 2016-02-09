@@ -28,9 +28,7 @@ public class StopInfoSelectStopActivity extends AppCompatActivity {
             editor.putString("stop_number",stopNumber);
             editor.commit();
         }
-        else {
-            // do nothing?
-        }
+        // else, no change
         finish();
     }
 }
