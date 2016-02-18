@@ -85,7 +85,8 @@
         android:layout_above="@+id/stop_info_filter"
         android:id="@+id/stop_info_grid_view"
         android:numColumns="3"
-        android:clickable="false"></GridView>
+        android:clickable="false"
+        android:stretchMode="columnWidth"></GridView>
 
     <!--<ListView
         android:layout_width="wrap_content"
