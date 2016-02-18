@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.RemoteViews;
@@ -34,15 +35,28 @@ public class InitialConfigure extends ActionBarActivity {
 
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == 66) {
+                final Context context = InitialConfigure.this;
+
+                if (actionId == EditorInfo.IME_NULL) {//enter button
                     //NewAppWidget.
 
-                    SharedPreferences settings = getPreferences(0);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putString("stop", v.getText().toString());
+                    Log.i("InitialConfigure", "here2");
+
+                    SharedPreferences settings = getPreferences(0);//get permanently stored preferences
+                    SharedPreferences.Editor editor = settings.edit();//get editor
+                    editor.putString("stop", v.getText().toString());//put current text in editor
 
                     // Commit the edits!
                     editor.commit();
+
+                    // Push widget update to surface with newly set prefix
+                    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+
+                    // Make sure we pass back the original appWidgetId
+                    Intent resultValue = new Intent();
+                    resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
+                    setResult(RESULT_OK, resultValue);
+                    finish();
 
                     return true;
                 }
@@ -60,26 +74,7 @@ public class InitialConfigure extends ActionBarActivity {
                     AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
         }
 
-        // Restore preferences
-        SharedPreferences settings = getPreferences(0);
-        String stop;
-
-        while(true) {
-            stop = settings.getString("stop", "Fail");
-            if (stop.length() > 3) {
-                break;
-            }
-        }
-
-        final Context context = InitialConfigure.this;
-        // Push widget update to surface with newly set prefix
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-
-        // Make sure we pass back the original appWidgetId
-        Intent resultValue = new Intent();
-        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
-        setResult(RESULT_OK, resultValue);
-        finish();
+        Log.i("InitialConfigure", "here1");
 
 
     }
