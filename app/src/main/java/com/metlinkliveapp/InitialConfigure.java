@@ -79,33 +79,6 @@ public class InitialConfigure extends ActionBarActivity {
 
         Log.i("InitialConfigure", "here1");
 
-        /*// Restore preferences
-        SharedPreferences settings = getPreferences(0);
-        String stop;
-
-        final Context context = InitialConfigure.this;
-        // Push widget update to surface with newly set prefix
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-
-
-
-        Log.i("InitialConfigure", "here4");
-
-
-
-        // Make sure we pass back the original appWidgetId
-        Intent resultValue = new Intent();
-        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
-        setResult(RESULT_OK, resultValue);
-        finish();
-
-        *//*while(true) {
-            stop = settings.getString("stop", "");
-            if (stop.length() > 3) {
-                Log.i("InitialConfigure", "here3");
-                break;
-            }
-        }*/
 
     }
 
