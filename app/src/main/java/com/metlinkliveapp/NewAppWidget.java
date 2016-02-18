@@ -40,7 +40,7 @@ public class NewAppWidget extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
 
-
+        this.setStop(new StopInfo("5000"));
 
         List<Departure> info;
         info = stop.getInfo();
