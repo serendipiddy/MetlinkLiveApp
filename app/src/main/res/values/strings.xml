@@ -22,5 +22,6 @@
     <string name="bus_location_header">Service No.</string>
     <string name="title_activity_bus_location">bus location</string>
     <string name="stop_info_select_stop_title">Enter stop number</string>
+    <string name="widgetStoplabel">Stop number</string>
 
 </resources>

@@ -1,11 +1,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#09C"
+    android:background="#c800364a"
     android:padding="@dimen/widget_margin">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00364a"
+        android:id="@+id/relativeLayout2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/widgetStoplabel"
+            android:id="@+id/widget_stop_label"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/appwidget_text"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@+id/widget_stop_label"
+            android:layout_alignBottom="@+id/widget_stop_label"
+            android:layout_marginLeft="5dp" />
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/widget_refresh_button"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/refresh_selector"
+            android:scaleType="fitCenter"
+            android:background="#00ffffff" />
+
+    </RelativeLayout>
+
     <TextView
-        android:id="@+id/appwidget_text"
+        android:id="@+id/textViewLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -18,14 +60,12 @@
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textViewLarge"
-        android:layout_below="@+id/appwidget_text"
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/widget_stop_info_list"
+        android:layout_below="@+id/relativeLayout2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp" />
+        android:textAlignment="center" />
 
 </RelativeLayout>
