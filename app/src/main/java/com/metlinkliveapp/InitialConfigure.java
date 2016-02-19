@@ -40,7 +40,7 @@ public class InitialConfigure extends ActionBarActivity {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {//enter button
                     //NewAppWidget.
 
-                    SharedPreferences settings = getSharedPreferences("widget_pref",MODE_PRIVATE);//get permanently stored preferences
+                    SharedPreferences settings = getSharedPreferences("widget_pref", MODE_PRIVATE);//get permanently stored preferences
                     SharedPreferences.Editor editor = settings.edit();//get editor
                     editor.putString("stop", v.getText().toString());//put current text in editor
                     Log.i("InitialConfig", v.getText().toString());

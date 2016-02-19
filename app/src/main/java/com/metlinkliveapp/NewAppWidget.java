@@ -29,33 +29,32 @@ public class NewAppWidget extends AppWidgetProvider {
 
     public static StopInfo stop = new StopInfo("");
 
-     void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
+    void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+                         int appWidgetId) {
+
+        SharedPreferences preferences = context.getSharedPreferences("widget_pref",0);
+        Log.i("k", preferences.contains("stop") + " ");
+        this.setStop(new StopInfo(preferences.getString("stop","-1")));
+        Log.i("k",preferences.getString("stop","-1"));
 
         CharSequence widgetText;
-         
-             widgetText = stop.getStopNumber();
-         
+
+        widgetText = stop.getStopNumber();
+
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
 
+        List<Departure> info;
+        info = stop.getInfo();
+        if (info.isEmpty()) {
+            views.setTextViewText(R.id.textViewLarge, "no results");
+        }
 
-         SharedPreferences preferences = context.getSharedPreferences("widget_pref",0);
-         Log.i("k", preferences.contains("widget_pref") + " ");
-         this.setStop(new StopInfo(preferences.getString("stop","-1")));
-         Log.i("k",preferences.getString("stop","-1"));
-
-         List<Departure> info;
-         info = stop.getInfo();
-         if (info.isEmpty()) {
-             views.setTextViewText(R.id.textViewLarge, "no results");
-         }
-
-         else {
-             Log.i("NewAppWidget","here");
-             views.setTextViewText(R.id.textViewLarge, info.get(0).toString());
-         }
+        else {
+            Log.i("NewAppWidget","here");
+            views.setTextViewText(R.id.textViewLarge, info.get(0).toString());
+        }
 
 
 
