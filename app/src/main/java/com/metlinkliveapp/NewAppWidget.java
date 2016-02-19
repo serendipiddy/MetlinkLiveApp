@@ -51,10 +51,13 @@ public class NewAppWidget extends AppWidgetProvider {
          if (info.isEmpty()) {
              views.setTextViewText(R.id.textViewLarge, "no results");
          }
+
          else {
              Log.i("NewAppWidget","here");
              views.setTextViewText(R.id.textViewLarge, info.get(0).toString());
          }
+
+
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
