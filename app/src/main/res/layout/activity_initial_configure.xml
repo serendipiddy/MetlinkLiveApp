@@ -20,12 +20,15 @@
         android:textSize="30dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/stopEntry"
         android:layout_below="@+id/stopSelectionAsk"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
-        android:text="" />
+        android:text=""
+        android:autoText="false"
+        android:inputType="number"
+        android:enabled="true" />
 </RelativeLayout>
 

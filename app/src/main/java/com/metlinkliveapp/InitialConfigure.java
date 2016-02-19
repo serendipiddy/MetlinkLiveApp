@@ -37,14 +37,13 @@ public class InitialConfigure extends ActionBarActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 final Context context = InitialConfigure.this;
 
-                if (actionId == EditorInfo.IME_NULL) {//enter button
+                if (actionId == EditorInfo.IME_ACTION_DONE) {//enter button
                     //NewAppWidget.
 
-                    Log.i("InitialConfigure", "here2");
-
-                    SharedPreferences settings = getPreferences(0);//get permanently stored preferences
+                    SharedPreferences settings = getSharedPreferences("widget_pref",MODE_PRIVATE);//get permanently stored preferences
                     SharedPreferences.Editor editor = settings.edit();//get editor
                     editor.putString("stop", v.getText().toString());//put current text in editor
+                    Log.i("InitialConfig", v.getText().toString());
 
                     // Commit the edits!
                     editor.commit();
@@ -73,9 +72,6 @@ public class InitialConfigure extends ActionBarActivity {
             mAppWidgetId = extras.getInt(
                     AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
         }
-
-        Log.i("InitialConfigure", "here1");
-
 
     }
 

@@ -4,9 +4,12 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.RemoteViews;
 import com.metlinkliveapp.StopInfo;
+import android.preference.PreferenceManager;
 
 import java.util.List;
 
@@ -30,17 +33,18 @@ public class NewAppWidget extends AppWidgetProvider {
                                 int appWidgetId) {
 
         CharSequence widgetText;
-         if (stop.getStopNumber().equals("")) {
-             widgetText = "none";
-         }
-         else {
-             widgetText = stop.getStopNumber();
-         }
+         widgetText = stop.getStopNumber();
+
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
 
-        this.setStop(new StopInfo("5000"));
+
+
+         SharedPreferences preferences = context.getSharedPreferences("widget_pref",0);
+         Log.i("k", preferences.contains("widget_pref")+" ");
+        this.setStop(new StopInfo(preferences.getString("stop","-1")));
+         Log.i("k",preferences.getString("stop","-1"));
 
         List<Departure> info;
         info = stop.getInfo();
@@ -48,6 +52,7 @@ public class NewAppWidget extends AppWidgetProvider {
             views.setTextViewText(R.id.textViewLarge, "no results");
         }
         else {
+            Log.i("NewAppWidget","here");
             views.setTextViewText(R.id.textViewLarge, info.get(0).toString());
         }
 
