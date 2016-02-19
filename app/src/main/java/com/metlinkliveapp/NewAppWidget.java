@@ -45,9 +45,12 @@ public class NewAppWidget extends AppWidgetProvider {
         List<Departure> info;
         info = stop.getInfo();
         if (info.isEmpty()) {
+            // display that no results are available in list view
             views.setTextViewText(R.id.textViewLarge, "no results");
         }
         else {
+            // push results through list adapter to display results
+
             views.setTextViewText(R.id.textViewLarge, info.get(0).toString());
         }
 
