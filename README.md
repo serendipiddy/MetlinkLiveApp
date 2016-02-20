@@ -8,6 +8,16 @@ Bus locations and tracking, useful when meeting someone off a bus, will be avail
 
 # How it looks
 
-The inteded design is as follows:
+The intended visual design, showing the three basic functions of the app are as follows.
+
+Viewing real time stop information for a particular stop
 
 ![Real time stop information](https://github.com/serendipiddy/MetlinkLiveApp/blob/master/visual_design/bus_app-02.jpg)
+
+Showing the stop near to the user's location
+
+![Real time stop information](https://github.com/serendipiddy/MetlinkLiveApp/blob/master/visual_design/bus_app-04.jpg)
+
+Viewing the locations of buses a particular route
+
+![Real time stop information](https://github.com/serendipiddy/MetlinkLiveApp/blob/master/visual_design/bus_app-03.jpg)
