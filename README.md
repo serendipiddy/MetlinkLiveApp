@@ -5,3 +5,8 @@ This app is an attempt to create something better than the current live-update a
 It will feature a snappy refresh option for live stop information in both widget and app forms.
 Stops will be locatable via map or selected quickly using the stop numbers
 Bus locations and tracking, useful when meeting someone off a bus, will be available too.
+
+# How it looks
+
+The inteded design is as follows:
+![Real time stop information](https://github.com/serendipiddy/MetlinkLiveApp/blob/master/visual_design/bus_app-10.jpg)
