@@ -8,7 +8,7 @@ Bus locations and tracking, useful when meeting someone off a bus, will be avail
 
 # How it looks
 
-The intended visual design, showing the three basic functions of the app are as follows.
+The intended visual design, showing the three basic functions of the app are as follows. (note, these are mock images, the final result will differ slightly from these.
 
 Viewing real time stop information for a particular stop
 
