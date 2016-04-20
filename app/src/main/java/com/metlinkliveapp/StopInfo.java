@@ -13,21 +13,23 @@ import org.jsoup.select.Elements;
  * Created by iddy on 28/12/2015.
  */
 public class StopInfo {
-    public String getStopNumber() {
-        return stopNumber;
+    public String getStopName() {
+        return stopName;
     }
 
-    public void setStopNumber(String stopNumber) {
-        this.stopNumber = stopNumber;
+    public void setStopName(String stopName) {
+        this.stopName = stopName;
     }
 
-    private String stopNumber;
+    private String stopName;
     private String stopURL = "https://www.metlink.org.nz/stop/<STOP>/departures";
 
-    public StopInfo(String stopNumber) {
-        assert stopNumber.matches("^\\d{4}$");
-        this.stopNumber = stopNumber;
-        stopURL = stopURL.replaceAll("<STOP>",stopNumber);
+    public StopInfo(String stopID) {
+        // assert stopName.matches("^\\d{4}$"); // doesn't include train stops
+        assert stopID.length() == 4;
+        assert stopID.matches("^\\d{4}$") || stopID.matches("^\\w{4}$"); // TODO simplify regex
+        this.stopName = stopID;
+        stopURL = stopURL.replaceAll("<STOP>", stopID);
     }
 
     /**

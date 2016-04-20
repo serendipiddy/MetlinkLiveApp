@@ -20,12 +20,12 @@ public class StopInfoSelectStopActivity extends AppCompatActivity {
     public void confirmStopEntry(View view) {
         // check stop is valid
         EditText et = (EditText) findViewById(R.id.stop_info_stop_editText);
-        String stopNumber = et.getText().toString();
+        String stopID = et.getText().toString();
         // set current stop == entered stop number
-        if (stopNumber.matches("^\\d{4}$")) {
+        if (stopID.matches("^\\d{4}$") || stopID.matches("^\\w{4}$")) { // TODO simplify this regex
             // http://stackoverflow.com/a/23024962
             SharedPreferences.Editor editor = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE).edit();
-            editor.putString("stop_number",stopNumber);
+            editor.putString("stop_number",stopID);
             editor.commit();
         }
         // else, no change
