@@ -5,11 +5,8 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.RemoteViews;
-import com.metlinkliveapp.StopInfo;
-import android.preference.PreferenceManager;
 
 import java.util.List;
 
@@ -39,7 +36,7 @@ public class NewAppWidget extends AppWidgetProvider {
 
         CharSequence widgetText;
 
-        widgetText = stop.getStopNumber();
+        widgetText = stop.getStopName();
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
