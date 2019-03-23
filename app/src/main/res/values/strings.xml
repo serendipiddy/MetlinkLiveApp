@@ -24,5 +24,6 @@
     <string name="stop_info_select_stop_title">Enter stop number</string>
     <string name="widgetStoplabel">Stop number</string>
     <string name="title_activity_location2">Map</string>
+    <string name="title_activity_route_select">RouteSelectActivity</string>
 
 </resources>

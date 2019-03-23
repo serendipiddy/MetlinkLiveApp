@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.metlinkliveapp.BusLocationActivity">
+    tools:context="com.metlinkliveapp.LocationActivity">
 
     <RelativeLayout
         android:orientation="vertical"
@@ -22,18 +23,18 @@
         <ImageButton
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/bus_location_fn_button"
+            android:id="@+id/location_fn_button"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:src="@drawable/bus_selector"
+            android:src="@drawable/location_selector"
             android:clickable="true"
             android:scaleType="fitCenter"
             android:background="#00ffffff"
-            android:onClick="selectService" />
+            android:onClick="refreshLocation" />
 
         <RelativeLayout
-            android:layout_width="120dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:clickable="false">
@@ -42,30 +43,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/bus_location_header"
-                android:id="@+id/bus_location_header"
+                android:text="@string/location_header"
+                android:id="@+id/location_header"
                 android:layout_centerHorizontal="true"
                 android:textColor="#ffffffff"
                 android:clickable="false"
                 android:layout_marginTop="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/bus_location_service_number"
-                android:id="@+id/bus_location_service_number"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/bus_location_header"
-                android:textColor="#ffff"
-                android:textStyle="bold"
-                android:textIsSelectable="false" />
         </RelativeLayout>
 
         <ImageButton
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/bus_location_refresh_button"
+            android:id="@+id/stop_info_refresh_button"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -73,7 +62,20 @@
             android:src="@drawable/refresh_selector"
             android:scaleType="fitCenter"
             android:background="#00ffffff"
-            android:onClick="refreshBusLocation" />
+            android:onClick="refreshLocation" />
 
     </RelativeLayout>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/location_map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        tools:context="com.metlinkliveapp.LocationActivity"
+        tools:layout="@layout/location_activity" />
+
+
 </RelativeLayout>

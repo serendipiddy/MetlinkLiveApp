@@ -1,17 +1,14 @@
 package com.metlinkliveapp;
 
-import android.app.Application;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
-import android.widget.RemoteViews;
 import android.widget.TextView;
 
 
@@ -29,7 +26,7 @@ public class InitialConfigure extends ActionBarActivity {
         // out of the widget placement if they press the back button.
         setResult(RESULT_CANCELED);
 
-        setContentView(R.layout.activity_initial_configure);
+        setContentView(R.layout.initial_configure_activity);
 
         ((TextView) findViewById(R.id.stopEntry)).setOnEditorActionListener(new TextView.OnEditorActionListener() {
 

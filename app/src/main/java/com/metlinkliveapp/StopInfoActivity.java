@@ -19,7 +19,7 @@ public class StopInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stop_info);
+        setContentView(R.layout.stop_info_activity);
     }
 
     /**
