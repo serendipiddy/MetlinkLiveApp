@@ -2,6 +2,7 @@ package com.metlinkliveapp;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.WindowManager;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,12 +13,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.location_activity);
+        //Remove notification bar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.location_map);
@@ -36,7 +37,7 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);

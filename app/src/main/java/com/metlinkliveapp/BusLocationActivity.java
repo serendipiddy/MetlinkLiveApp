@@ -1,55 +1,52 @@
 package com.metlinkliveapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class BusLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private ArrayList<Route> routes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bus_location_activity);
+        //Remove notification bar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.bus_map);
         mapFragment.getMapAsync(this);
-        Route route = new Route("Island Bay",1);
-        routes = new ArrayList<Route>();
-        routes.add(route);
-        route = new Route("Miramar",2);
-        routes.add(route);
-        route = new Route("Lyall Bay",3);
-        routes.add(route);
-        route = new Route("Happy Valley",4);
-        routes.add(route);
-        route = new Route("Seatoun",5);
-        routes.add(route);
 
-
-        // convert array and display live stop information in GridView
-//        List<String> infoString = convertToStringList(infoList);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.stop_info_list_item, infoString);
-//        GridView lv = (GridView) findViewById(R.id.stop_info_grid_view);
-//        lv.setAdapter(adapter);
-
+        //Update selected stop textview
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE);
+        String stop = prefs.getString("route_number", null);
+        TextView serviceNumber = (TextView)findViewById(R.id.bus_location_service_number);
+        serviceNumber.setText(stop);
     }
 
     public void selectRoute(View view) {
@@ -57,10 +54,90 @@ public class BusLocationActivity extends FragmentActivity implements OnMapReadyC
         startActivity(intent);
     }
 
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-//        updateList();
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE);
+        String route = prefs.getString("route_number", null);
+        if (route != null) {
+            TextView serviceNumber = (TextView)findViewById(R.id.bus_location_service_number);
+            serviceNumber.setText(route);
+            updateMap();
+        }
+
     }
+
+    /**
+     * For button use. Refreshes the bus locations displayed
+     * @param view
+     */
+    public void refreshBusInfo(View view) {
+        updateMap();
+    }
+
+    private void updateMap() {
+        if (mMap != null) {
+            mMap.clear();
+            JSONArray busInfo;
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE);
+            String route = prefs.getString("route_number", null);
+            if (route != null) {
+                //Draw bus route
+                PolylineOptions options = new PolylineOptions();
+
+                options.color(Color.parseColor("#CC0000FF"));
+                options.width(10);
+                options.visible(true);
+
+                QuickLink appState = ((QuickLink) getApplicationContext());
+
+                Log.d("Bus","Route: " + route);
+                Log.d("Bus","routeNumberToPathsMap.keySet= " + appState.getRouteNumberToPathsMap().keySet().toString());
+                if (appState.getRouteNumberToPathsMap().get(route) == null) {
+                    Log.d("Bus", "faillllll");
+                }
+
+
+                for (ArrayList<LatLng> path : appState.getRouteNumberToPathsMap().get(route)) {
+                    for (LatLng point : path) {
+                        options.add(point);
+                    }
+                    mMap.addPolyline(options);
+                    options = new PolylineOptions();
+                }
+
+
+
+            }
+
+            //Draw bus markers
+            Log.d("BusInfo", "Stop: " + route);
+            AsyncTask r = new JsonRequest(this).execute("https://www.metlink.org.nz/api/v1/ServiceLocation/" + route);
+            try {
+                JSONObject json = (JSONObject) r.get();
+                busInfo = json.getJSONArray("Services");
+                Log.d("BusInfo", "req-result success");
+            } catch (Exception e) {
+                Log.d("BusInfo", "(Failed to get -- " + e.getClass() + ") " + e.getMessage());
+                return;
+            }
+
+            JSONObject bus;
+            try {
+                for (int i = 0; i < busInfo.length(); i++) {
+                    bus = busInfo.getJSONObject(i);
+                    MarkerOptions marker = new MarkerOptions().position(new LatLng(bus.getDouble("Lat"), bus.getDouble("Long")));
+                    marker.anchor(0.5f, 0.5f);
+                    marker.icon(BitmapDescriptorFactory.fromAsset("blueArrow.bmp"));
+                    marker.rotation(Float.parseFloat(bus.getString("Bearing")));//0 is up, 90 is right etc
+                    marker.flat(true);
+                    mMap.addMarker(marker);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 
     /**
@@ -74,42 +151,9 @@ public class BusLocationActivity extends FragmentActivity implements OnMapReadyC
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
-        QuickLink appState = ((QuickLink)getApplicationContext());
         mMap = googleMap;
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-41.3, 174.78), 11));
-
-        PolylineOptions options = new PolylineOptions();
-
-        options.color(Color.parseColor("#CC0000FF"));
-        options.width(10);
-        options.visible(true);
-//        options.geodesic(true);//idk what this does
-
-        for (ArrayList<LatLng> list : appState.getIslandBay()) {
-            for (LatLng point : list) {
-                options.add(point);
-            }
-            mMap.addPolyline(options);
-            options = new PolylineOptions();
-        }
-//        for (LatLng point : appState.getIslandBayOne()) {
-//            options.add(point);
-//        }
-//
-//        mMap.addPolyline(options);
-//
-//        PolylineOptions optionsTwo = new PolylineOptions();
-//
-//        options.color(Color.parseColor("#CC0000FF"));
-//        options.width(10);
-//        options.visible(true);
-//
-//        for (LatLng point : appState.getIslandBayTwo()) {
-//            optionsTwo.add(point);
-//        }
-//
-//        mMap.addPolyline( optionsTwo );
+        updateMap();
     }
 
 }

@@ -3,13 +3,9 @@ package com.metlinkliveapp;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
-
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.RemoteViews;
-import com.metlinkliveapp.StopInfo;
-import android.preference.PreferenceManager;
 
 import java.util.List;
 
@@ -24,7 +20,7 @@ public class NewAppWidget extends AppWidgetProvider {
     }
 
     public void setStop(StopInfo stop) {
-        this.stop = stop;
+        NewAppWidget.stop = stop;
     }
 
     public static StopInfo stop = new StopInfo("");

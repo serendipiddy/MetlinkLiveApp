@@ -1,18 +1,18 @@
 package com.metlinkliveapp;
 
+import android.annotation.SuppressLint;
 import android.appwidget.AppWidgetManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
 
-public class InitialConfigure extends ActionBarActivity {
+public class InitialConfigure extends AppCompatActivity {
 
     int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 
@@ -30,9 +30,10 @@ public class InitialConfigure extends ActionBarActivity {
 
         ((TextView) findViewById(R.id.stopEntry)).setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
+            @SuppressLint("CommitPrefEdits")
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                final Context context = InitialConfigure.this;
+//                final Context context = InitialConfigure.this; never used so commented out
 
                 if (actionId == EditorInfo.IME_ACTION_DONE) {//enter button
                     //NewAppWidget.
@@ -46,7 +47,7 @@ public class InitialConfigure extends ActionBarActivity {
                     editor.commit();
 
                     // Push widget update to surface with newly set prefix
-                    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+//                    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context); //never used so commented out
 
                     // Make sure we pass back the original appWidgetId
                     Intent resultValue = new Intent();

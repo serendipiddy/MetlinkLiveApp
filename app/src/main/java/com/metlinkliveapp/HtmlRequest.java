@@ -11,7 +11,7 @@ import android.os.AsyncTask;
 /**
  * Created by iddy on 22/12/2015.
  */
-public class Request extends AsyncTask<String, Void, Document> {
+public class HtmlRequest extends AsyncTask<String, Void, Document> {
     /* Need to execute network requests in async, not on main thread. AsynkTask<params, progress, result> */
     protected Document doInBackground(String... urls) {
         Document doc = null;
@@ -19,7 +19,8 @@ public class Request extends AsyncTask<String, Void, Document> {
         try {
             Log.d("Request_TryInBG", Arrays.toString(urls));
             url = urls[0];
-            doc = Jsoup.connect(url).get();
+            doc = Jsoup.connect(url).ignoreContentType(true).get();
+            Log.d("HtmlRequest","Data: " + doc.outerHtml());
         }
         catch (Exception e) {
             Log.d("Request_doInBG", "Error: (" + e.getClass() + ") -- " + e.getMessage());
@@ -27,5 +28,4 @@ public class Request extends AsyncTask<String, Void, Document> {
         return doc;
     }
 
-    protected void onPostExecute(String s) { }
 }

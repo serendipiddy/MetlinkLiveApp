@@ -37,7 +37,7 @@ public class StopInfo {
     private Document getPage() {
         // Retrieve the web page
         Document stopHtml;
-        AsyncTask r = new Request().execute(this.stopURL);
+        AsyncTask r = new HtmlRequest().execute(this.stopURL);
         try {
             stopHtml = (Document) r.get();
             Log.d("StopInfo", "req-result success");

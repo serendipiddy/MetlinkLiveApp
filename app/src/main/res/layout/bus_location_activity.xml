@@ -53,9 +53,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/bus_location_service_number"
                 android:id="@+id/bus_location_service_number"
                 android:layout_centerHorizontal="true"
+                android:maxLines="3"
                 android:layout_below="@+id/bus_location_header"
                 android:textColor="#ffff"
                 android:textStyle="bold"
@@ -73,7 +73,7 @@
             android:src="@drawable/refresh_selector"
             android:scaleType="fitCenter"
             android:background="#00ffffff"
-            android:onClick="refreshBusLocation" />
+            android:onClick="refreshBusInfo" />
 
     </RelativeLayout>
 
