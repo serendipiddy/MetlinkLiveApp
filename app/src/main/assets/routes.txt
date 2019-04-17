@@ -1,0 +1,90 @@
+1	Johnsonville West/Churton Park/Grenada Village - Island Bay
+2	Karori - Wellington - Hataitai - Seatoun
+3	Lyall Bay/Rongotai - Kilbirnie - Newtown - Wellington
+7	Kingston - Brooklyn - Wellington
+12	Strathmore Park - Kilbirnie
+12e	Strathmore Park - Kilbirnie - Hataitai - Wellington
+13	Mairangi - Glenmore Street - Brandon Street
+14	Wilton - Wellington - Roseneath - Hataitai - Kilbirnie
+17	Kowhai Park - Brooklyn
+17e	Kowhai Park - Brooklyn - Wellington
+18	Miramar - Miramar Shops
+18e	Miramar - Newtown - Kelburn - Karori
+19	Johnsonville - Churton Park - Johnsonville
+19e	Johnsonville - Churton Park - Johnsonville (Wellington extension)
+20	Kilbirnie - Mt Victoria - Courtenay Place
+21	Karori (Wrights Hill) - Kelburn - Courtenay Place
+22	Johnsonville - Mairangi - Kelburn - Wellington
+23	Houghton Bay - Newtown - Vogeltown - Kingston
+23e	Houghton Bay - Newtown - Wellington
+23z	Wellington Zoo - Wellington
+24	Johnsonville - Broadmeadows - Wellington - Miramar Heights
+25	Khandallah - Wellington - Aro Valley - Highbury
+26	Khandallah - Ngaio - Brandon Street
+27	Vogeltown - Wellington
+28	Beacon Hill - Strathmore Park Shops
+29	Newtown - Southgate - Owhiro Bay - Brooklyn
+29e	Newtown - Southgate - Owhiro Bay - Brooklyn (Wellington extension)
+30x	Scorching Bay/Moa Point - Wellington (Express)
+31x	Miramar North - Wellington (Express)
+32x	Houghton Bay - Island Bay - Berhampore - Wellington (Express)
+33	Karori South - Brandon Street
+34	Karori West - Brandon Street
+35	Hataitai - Wellington
+36	Lyall Bay - Kilbirnie - Hataitai - Wellington
+37	Karori (Wrights Hill) - Kelburn - Brandon Street
+52	Johnsonville - Newlands - Wellington
+56	Johnsonville - Paparangi - Wellington
+57	Woodridge - Wellington
+58	Newlands - Wellington
+60	Porirua - Tawa - Johnsonville
+60e	Porirua - Tawa - Johnsonville - Wellington
+81	Eastbourne - Petone - Wellington
+83	Eastbourne - Lower Hutt - Petone - Wellington
+84	Gracefield - Petone - Wellington
+85x	Eastbourne - Wellington (Express)
+110	Emerald Hill - Upper Hutt - Lower Hutt - Petone
+111	Upper Hutt - Totara Park - Upper Hutt
+112	Te Marua - Timberlea - Maoribank - Upper Hutt
+113	Riverstone Terraces - Upper Hutt
+114	Trentham - Elderslea - Upper Hutt
+115	Upper Hutt - Pinehaven - Upper Hutt
+120	Stokes Valley - Taita - Epuni - Lower Hutt
+121	Stokes Valley Heights - Naenae - Lower Hutt - Seaview
+130	Naenae - Waterloo - Lower Hutt - Petone
+145	Belmont - Melling - Lower Hutt
+150	Kelson - Lower Hutt - Maungaraki - Petone
+154	Petone - Korokoro - Petone
+160	Wainuiomata North - Waterloo - Lower Hutt
+170	Lower Hutt - Wainuiomata South - Lower Hutt
+200	Masterton - Greytown - Featherston - Martinborough
+201	Masterton - Masterton West - Masterton
+202	Masterton - Masterton South - Masterton
+203	Masterton - Masterton North - Masterton
+204	Greytown - Woodside
+206	Masterton - Masterton East - Masterton
+210	Titahi Bay - Porirua
+220	Titahi Bay - Porirua - Ascot Park
+226	Sievers Grove - Elsdon - Sievers Grove
+230	Whitby (The Crowsnest) - Aotea - Porirua
+236	Whitby (Navigation Drive) - Paremata - Papakowhai - Porirua
+250	Paraparaumu - Raumati South - Paraparaumu
+251	Paekakariki - Paraparaumu - Kapiti Health Centre
+260	Raumati Beach - Paraparaumu Beach - Paraparaumu
+261	Paraparaumu Beach - Paraparaumu (via Guildford Drive)
+262	Paraparaumu Beach - Paraparaumu (via Mazengarb Road)
+264	Paraparaumu East - Paraparaumu - Kapiti Health Centre
+280	Waikanae - Waikanae Beach - Waikanae
+281	Waikanae - Waikanae East - Waikanae
+290	Waikanae - Otaki - Waikanae
+291	Waikanae - Levin trial bus service
+N1	After Midnight (Wellington - Island Bay - Houghton Bay - Lyall Bay)
+N2	After Midnight (Wellington - Miramar - Strathmore Park - Seatoun)
+N22	After Midnight (Wellington - Naenae - Stokes Valley - Upper Hutt)
+N3	After Midnight (Wellington - Kelburn - Karori - Northland)
+N4	After Midnight (Wellington - Wadestown - Ngaio - Khandallah)
+N5	After Midnight (Wellington - Newlands - Churton Park - Johnsonville)
+N6	After Midnight (Wellington - Porirua - Whitby - Plimmerton)
+N66	After Midnight (Wellington - Lower Hutt - Waterloo - Wainuiomata)
+N8	After Midnight (Lower Hutt - Petone - Wellington)
+N88	After Midnight (Wellington - Petone - Lower Hutt - Eastbourne)

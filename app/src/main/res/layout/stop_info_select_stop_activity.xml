@@ -20,33 +20,36 @@
         android:textAlignment="center"
         android:layout_margin="16dp" />
 
-    <EditText
-        android:layout_width="150dp"
+    <AutoCompleteTextView
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="text|textAutoComplete"
         android:ems="10"
-        android:id="@+id/route_editText"
+        android:id="@+id/stopTextView"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:windowSoftInputMode="stateVisible"
+        android:imeOptions="actionGo"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/listView"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/route_editText"
+        android:layout_below="@+id/stopTextView"
         android:layout_margin="16dp" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageButton"
-        android:layout_toRightOf="@+id/route_editText"
-        android:layout_toEndOf="@+id/route_editText"
+        android:layout_toRightOf="@+id/stopTextView"
+        android:layout_toEndOf="@+id/stopTextView"
         android:src="@drawable/confirm_selector"
         android:scaleType="fitCenter"
         android:background="#00ffffff"
-        android:layout_alignBottom="@+id/route_editText"
+        android:layout_alignBottom="@+id/stopTextView"
         android:clickable="true"
         android:onClick="confirmStopEntry" />
 

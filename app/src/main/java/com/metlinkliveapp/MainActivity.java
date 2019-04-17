@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         //Remove notification bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);  // Loads the layout XML file
 

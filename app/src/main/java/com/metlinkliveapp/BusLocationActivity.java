@@ -96,7 +96,6 @@ public class BusLocationActivity extends FragmentActivity implements OnMapReadyC
                     Log.d("Bus", "faillllll");
                 }
 
-
                 for (ArrayList<LatLng> path : appState.getRouteNumberToPathsMap().get(route)) {
                     for (LatLng point : path) {
                         options.add(point);
@@ -104,16 +103,14 @@ public class BusLocationActivity extends FragmentActivity implements OnMapReadyC
                     mMap.addPolyline(options);
                     options = new PolylineOptions();
                 }
-
-
-
             }
 
             //Draw bus markers
             Log.d("BusInfo", "Stop: " + route);
             AsyncTask r = new JsonRequest(this).execute("https://www.metlink.org.nz/api/v1/ServiceLocation/" + route);
             try {
-                JSONObject json = (JSONObject) r.get();
+                String jsonString = (String) r.get();
+                JSONObject json = new JSONObject( jsonString);
                 busInfo = json.getJSONArray("Services");
                 Log.d("BusInfo", "req-result success");
             } catch (Exception e) {
