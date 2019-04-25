@@ -39,6 +39,18 @@ public class StopInfoSelectStopActivity extends AppCompatActivity {
 //        actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
         actv.setTextColor(Color.BLACK);
         actv.setDropDownWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String stopName = actv.getText().toString();
+                SharedPreferences.Editor editor = getSharedPreferences(getString(R.string.prefs), MODE_PRIVATE).edit();
+                stopName = stopName.split(" ")[0];
+                Log.d("RouteSelect", "stopName: " + stopName);
+                editor.putString("stop_number", stopName);
+                editor.commit();
+                finish();
+            }
+        });
         actv.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -47,19 +59,23 @@ public class StopInfoSelectStopActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.length() > 2) {
+                if (s.length() > 2 && before < count) {
+                    Log.d("StopInfoSelect","before: " + Integer.valueOf(before)+ " count: " + count + "s.length: " + s.length());
+                    for (String stop : getSuggestedStops(s.toString())) {
+                        Log.d("StopInfoSelect",stop);
+                    }
                     actv.setAdapter(new ArrayAdapter<String>
                             (actv.getContext(), android.R.layout.select_dialog_item, getSuggestedStops(s.toString())));
-                    Log.d("StopInfoSelect", String.valueOf(actv.getAdapter().getCount()));
+                    actv.showDropDown();
                 } else {
                     actv.setAdapter(new ArrayAdapter<String>
                             (actv.getContext(), android.R.layout.select_dialog_item, new ArrayList<String>()));
                 }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
     }
@@ -69,6 +85,7 @@ public class StopInfoSelectStopActivity extends AppCompatActivity {
         ArrayList<String> suggestedStopsArray = new ArrayList<>();
         try {
             String jsonString = (String) r.get();
+            Log.d("StopInfoSelect",jsonString);
             JSONArray suggestedStopsJSONArray = new JSONArray(jsonString);
 
             JSONObject stop;
