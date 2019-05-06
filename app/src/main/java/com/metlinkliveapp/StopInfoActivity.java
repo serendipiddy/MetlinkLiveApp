@@ -95,12 +95,20 @@ public class StopInfoActivity extends AppCompatActivity {
         // query metlink
         info = new StopInfo(stop);
         List<Departure> infoList = info.getInfo();
-
-        // convert array and display live stop information in GridView
-        List<String> infoString = convertToStringList(infoList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.stop_info_list_item, infoString);
-        GridView lv = (GridView) findViewById(R.id.stop_info_grid_view);
-        lv.setAdapter(adapter);
+        if (infoList == null) {
+            List<String> noInfo = new LinkedList<>();
+            noInfo.add("No buses in the next 7 hours");
+            noInfo.add("No buses in the next 7 hours");
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.stop_info_list_item, noInfo);
+            GridView lv = (GridView) findViewById(R.id.stop_info_grid_view);
+            lv.setAdapter(adapter);
+        } else {
+            // convert array and display live stop information in GridView
+            List<String> infoString = convertToStringList(infoList);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.stop_info_list_item, infoString);
+            GridView lv = (GridView) findViewById(R.id.stop_info_grid_view);
+            lv.setAdapter(adapter);
+        }
     }
 
     /**

@@ -22,7 +22,7 @@ public class StopInfo {
     }
 
     private String stopNumber;
-    private String stopURL = "https://www.metlink.org.nz/stop/<STOP>/departures";
+    private String stopURL = "https://www.metlink.org.nz/stop/<STOP>/departures?";
 
     public StopInfo(String stopNumber) {
         assert stopNumber.matches("^\\d{4}$");
@@ -51,6 +51,9 @@ public class StopInfo {
 
     private List<Departure> processStopInfo(Document doc) {
         List<Departure> list = new LinkedList<Departure>();
+        if (doc.getElementsByTag("table").first().getElementsByTag("tr") == null) {
+            return null;
+        }
 
         Elements rows = doc.getElementsByTag("table").first().getElementsByTag("tr");
         int dayDelta = 0;
@@ -73,9 +76,9 @@ public class StopInfo {
      */
     protected List<Departure> getInfo() {
         Document soup = getPage();
-        if (soup == null) {
-            Log.d("getInfo", "soup returned null, no stop information available");
-            return new LinkedList<Departure>();
+        if (!soup.outerHtml().contains("tr")) {
+            Log.d("getInfo", "no stop information available");
+            return null;
         }
         return processStopInfo(soup);
     }
